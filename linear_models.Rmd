@@ -1,0 +1,36 @@
+---
+title: "Linear Models"
+author: "Andrew Holguin"
+date: "August 3, 2017"
+output:
+  html_document:
+    toc: true
+    toc_depth: 3
+    toc_float:
+      collapsed: false
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Classical Linear Model
+
+_Notes on the classical linear model_:
+
+$$
+y_i = \beta_0 + \beta_1 x_{i1} + \dots + \beta_p x_{ip} + \varepsilon_i, \hspace{1 cm} i = 1, \dots, n \\
+\\
+\varepsilon \sim N(0, \sigma^2)
+$$
+
+### Covariate Relationship
+
+Expected value can be expressed as a linear function of covariates.
+
+### Error Model Assumptions
+- independent
+- normally distributed
+- constant (homogeous) variance
+
+

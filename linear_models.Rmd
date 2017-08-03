@@ -14,12 +14,18 @@ output:
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
+$$
+\newcommand{\E}{\mathrm{E}}
+\newcommand{\Var}{\mathrm{Var}}
+\newcommand{\Cov}{\mathrm{Cov}}
+$$
+
 ## Classical Linear Model
 
 _Notes on the classical linear model_:
 
 $$
-y_i = \beta_0 + \beta_1 x_{i1} + \dots + \beta_p x_{ip} + \varepsilon_i, \hspace{1 cm} i = 1, \dots, n \\
+y_i = \beta_0 + \beta_1 x_{i1} + \dots + \beta_p x_{ip} + \varepsilon_i, \hspace{1cm} i = 1, \dots, n \\
 \\
 \varepsilon \sim N(0, \sigma^2)
 $$
@@ -33,4 +39,14 @@ Expected value can be expressed as a linear function of covariates.
 - normally distributed
 - constant (homogeous) variance
 
+
+## LM with heterogeneous variance
+
+LM + variance function
+
+$$
+y_i = \beta_0 + \beta_1 x_{i1} + \dots + \beta_p x_{ip} + \varepsilon_i, \hspace{1cm} i = 1, \dots, n \\
+\\
+\varepsilon \sim N(0, \sigma_i^2) \hspace{1cm} \text{*note: }\sigma_i \rightarrow \text{non-constant variance}
+$$
 

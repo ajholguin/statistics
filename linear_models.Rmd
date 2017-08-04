@@ -1,7 +1,7 @@
 ---
 title: "Linear Models"
 author: "Andrew Holguin"
-date: "August 3, 2017"
+date: "Last Updated: `r Sys.Date()`"
 output:
   html_document:
     toc: true
@@ -18,16 +18,21 @@ $$
 \newcommand{\E}{\mathrm{E}}
 \newcommand{\Var}{\mathrm{Var}}
 \newcommand{\Cov}{\mathrm{Cov}}
+\newcommand{\matr}[1]{\mathbf{#1}}
 $$
 
-## Classical Linear Model
-
-_Notes on the classical linear model_:
+Classical Linear Model
+--------------------------------------------------------------------------------
 
 $$
 y_i = \beta_0 + \beta_1 x_{i1} + \dots + \beta_p x_{ip} + \varepsilon_i, \hspace{1cm} i = 1, \dots, n \\
 \\
 \varepsilon \sim N(0, \sigma^2)
+$$
+_matrix representation_:
+
+$$
+\matr{y} = \matr{X} \matr{\beta} + \matr{\varepsilon}
 $$
 
 ### Covariate Relationship
@@ -39,8 +44,14 @@ Expected value can be expressed as a linear function of covariates.
 - normally distributed
 - constant (homogeous) variance
 
+### More info
 
-## LM with heterogeneous variance
+https://en.wikipedia.org/wiki/Linear_model  
+https://en.wikipedia.org/wiki/Linear_regression  
+
+
+LM with heterogeneous variance
+--------------------------------------------------------------------------------
 
 LM + variance function
 
@@ -50,3 +61,27 @@ y_i = \beta_0 + \beta_1 x_{i1} + \dots + \beta_p x_{ip} + \varepsilon_i, \hspace
 \varepsilon \sim N(0, \sigma_i^2) \hspace{1cm} \text{*note: }\sigma_i \rightarrow \text{non-constant variance}
 $$
 
+_matrix representation_:
+
+$$
+\matr{y} = \matr{X} \matr{\beta} + \matr{\varepsilon}
+$$
+
+The model is not [identifiable](https://en.wikipedia.org/wiki/Identifiability),
+since there are n + p parameters (n $\sigma$ + p $\beta$) to estimate. The
+solution is impose constraints on the $\sigma$:
+  
+1. Assume __known variance weights__.  
+$$
+Var(\varepsilon_i) = Var(y_i) = \sigma^2 / w_i, \hspace{1 cm} w_i > 0
+$$
+In the model the errors are the expressed as:
+$$
+\varepsilon_i \sim N(0, \sigma^2 / w_i)
+$$
+If $w_i = 1$ for all observations, then this reduces to the classical LM, with
+homogeneous variance.
+
+2. Use __variance function__ to express variance values as function of only a few parameters.
+
+__TODO__
